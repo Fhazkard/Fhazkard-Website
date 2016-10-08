@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8FC7DFE9-4B1C-447F-B3DA-5BC213EDC4E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{72C314F7-DBFD-4291-8C53-889488874403}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Fhazkard-Website", "src\Fhazkard-Website\Fhazkard-Website.xproj", "{1A407F37-1527-49B5-BCF5-9C0320E9B5A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A407F37-1527-49B5-BCF5-9C0320E9B5A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A407F37-1527-49B5-BCF5-9C0320E9B5A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A407F37-1527-49B5-BCF5-9C0320E9B5A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A407F37-1527-49B5-BCF5-9C0320E9B5A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A407F37-1527-49B5-BCF5-9C0320E9B5A7} = {8FC7DFE9-4B1C-447F-B3DA-5BC213EDC4E0}
+	EndGlobalSection
+EndGlobal

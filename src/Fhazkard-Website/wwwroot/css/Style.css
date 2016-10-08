@@ -1,0 +1,13 @@
+﻿@media only screen and (min-width: 768px) {
+    .navbar-custom .nav li a:focus, .navbar-custom .nav li a:hover {
+        color: #00d4ff;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .navbar-custom .navbar-brand:focus, .navbar-custom .navbar-brand:hover {
+        color: #00d4ff;
+    }
+}
+#back-to-top{
+    display: block;
+}
