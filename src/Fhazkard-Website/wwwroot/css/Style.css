@@ -8,6 +8,11 @@
         color: #00d4ff;
     }
 }
-#back-to-top{
-    display: block;
+.table.blog{
+    font-size: small;
+    word-wrap: break-word;
+    height: 100px;
+}
+p a {
+    text-decoration: none;
 }

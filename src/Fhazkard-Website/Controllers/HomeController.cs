@@ -10,7 +10,7 @@ namespace Fhazkard_Website.Controllers
     {
         public IActionResult Index()
         {
-            return RedirectToAction("Index", "Blog");
+            return View();
 
         }
 

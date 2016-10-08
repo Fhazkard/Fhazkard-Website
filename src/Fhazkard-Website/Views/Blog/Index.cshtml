@@ -1,64 +1,52 @@
-﻿@{
-    ViewData["Title"] = "Home";
+@model IEnumerable<Fhazkard_Website.Models.BlogViewModels.Blog>
+
+@{
+    ViewData["Title"] = "Blog List";
 }
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-preview">
-                <a href="#">
-                    <h2 class="post-title">
-                        Man must explore, and this is exploration at its greatest
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Problems look mighty small from 150 miles up
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Fhazkard</a> on October 1, 2016</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="#">
-                    <h2 class="post-title">
-                        I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                    </h2>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Fhazkard</a> on September 28, 2016</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="#">
-                    <h2 class="post-title">
-                        Science has not yet mastered prophecy
-                    </h2>
-                    <h3 class="post-subtitle">
-                        We predict too much for the next year and yet far too little for the next ten.
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Fhazkard</a> on September 27, 2016</p>
-            </div>
-            <hr>
-            <div class="post-preview">
-                <a href="#">
-                    <h2 class="post-title">
-                        Failure is not an option
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Fhazkard</a> on September 25, 2016</p>
-            </div>
-            <hr>
-            <!-- Pager -->
-            <ul class="pager">
-                <li class="next">
-                    <a href="#">Older Posts &rarr;</a>
-                </li>
-            </ul>
-        </div>
-    
-    </div>
-</div>
+<h2>Blog List</h2>
 
+<p>
+    <a asp-action="#">Create New</a>
+</p>
+<table class="table blog" border="0">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title_blog)
+            </th>                               
+            @*<th>
+                @Html.DisplayNameFor(model => model.create_date)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.content_blog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.author_name)
+            </th> 
+            <th></th>         
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <th style="max-width:500px;">
+                <a asp-action="#" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.title_blog)</a>             
+            </th>                       
+            @*<th>
+                @Html.DisplayFor(modelItem => item.create_date)
+            </th>*@
+            <th style="max-width:480px;">
+                @Html.DisplayFor(modelItem => item.content_blog)
+            </th>
+            <th style="max-width:100px;">
+                @Html.DisplayFor(modelItem => item.author_name)
+            </th>          
+            <td style="max-width:100px;">
+                <a asp-action="#" asp-route-id="@item.Id" data-toggle="tooltip" title="EDIT"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> |
+                <a asp-action="#" asp-route-id="@item.Id" data-toggle="tooltip" title="DELETE"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
