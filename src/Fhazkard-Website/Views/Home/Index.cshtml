@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Fhazkard_Website.Models.BlogViewModels.Blog>
+﻿@using System.ComponentModel.DataAnnotations;
+@model IEnumerable<Fhazkard_Website.Models.BlogViewModels.Blog>
 @{
     ViewData["Title"] = "Home";
 }
@@ -8,19 +9,22 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="post-preview">
-                <a href="post.html">
-                    <h2 class="post-title">
-                        Man must explore, and this is exploration at its greatest
-                    </h2>
-                    <h3 class="post-subtitle">
-                        Problems look mighty small from 150 miles up
-                    </h3>
-                </a>
-                <p class="post-meta">Posted by <a href="#">Fhazkard</a> on October 1, 2016</p>
-            </div>
-            <hr>
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">           
+                @foreach (var item in Model)
+                {
+                    <div class="post-preview">
+                        <a asp-controller="blog" asp-action="details" asp-route-id="@item.Id">
+                            <h2 class="post-title">
+                                @Html.DisplayFor(modelItem => item.title_blog)
+                            </h2>
+                        </a>
+                            <div class="post-subtitle">
+                           @Html.Raw(item.content_blog)
+                            </div>                     
+                        <p class="post-meta">Posted by <a href="#">Fhazkard</a> on @item.create_date.ToString("dd-MMM-yyyy")</p>                       
+                    </div>
+                 <hr>
+                }
             <div class="post-preview">
                 <a href="#">
                     <h2 class="post-title">

@@ -16,3 +16,10 @@
 p a {
     text-decoration: none;
 }
+.post-subtitle {
+    line-height: 0.75;
+    margin: 10px, 0;
+}
+.post-preview>.post-meta  {
+    margin-top: 10px;
+}
