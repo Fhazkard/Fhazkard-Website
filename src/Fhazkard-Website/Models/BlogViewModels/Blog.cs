@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 
 namespace Fhazkard_Website.Models.BlogViewModels
 {
@@ -19,7 +20,7 @@ namespace Fhazkard_Website.Models.BlogViewModels
         public string author_name { get; set; }
         [Display(Name = "Created Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime create_date { get; set; }
     }
 }

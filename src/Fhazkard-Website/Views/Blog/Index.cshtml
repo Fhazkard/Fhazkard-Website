@@ -8,7 +8,7 @@
 <h2>Blog List</h2>
 
 <p>
-    <a asp-action="create">Create New</a>
+<a asp-action="create" role="button" class="btn btn-default">Create New</a>
 </p>
 <table class="table blog" border="0">
     <thead>
@@ -29,7 +29,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.OrderByDescending(m => m.Id)) {
         <tr>
             <th style="max-width:500px;">
                 <a asp-action="details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.title_blog)</a>             
@@ -44,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.author_name)
             </th>          
             <td style="max-width:100px;">
-                <a asp-action="edit" asp-route-id="@item.Id" data-toggle="tooltip" title="EDIT"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> |
+                @*<a asp-action="edit" asp-route-id="@item.Id" data-toggle="tooltip" title="EDIT"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> |*@
                 <a asp-action="delete" asp-route-id="@item.Id" data-toggle="tooltip" title="DELETE"><i class="fa fa-trash" aria-hidden="true"></i></a>
             </td>
         </tr>

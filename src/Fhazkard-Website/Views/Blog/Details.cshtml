@@ -38,6 +38,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a role="button" class="btn btn-default" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <div class="delete_back" align="right"><a asp-action="Index">Back to List</a></div>
 </div>
