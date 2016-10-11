@@ -13,6 +13,11 @@
         color: #00d4ff;
     }
 }
+@media only screen and (min-width: 1170px) {
+    .navbar-default .btn-link:hover, .navbar-default .btn-link:focus {
+        color: #00d4ff;
+    }
+}
 
 .table.blog{
     font-size: small;
@@ -72,4 +77,52 @@ p a {
          margin-top: 0;
          margin-right: 0;
     }
+}
+/*@media only screen and (min-width: 1170px) {
+    #logoff{
+        color: #333;
+    }
+}*/
+@media only screen and (min-width: 1170px) {
+    .navbar-custom.is-fixed .nav li button:hover{
+        color: #333;
+        color: #0085A1;
+    }
+}
+@media only screen and (min-width: 1170px) {
+    .navbar-custom.is-fixed .nav li button{
+        color: #333;
+    }
+}
+@media only screen and (min-width: 1170px) {
+    .navbar-custom.is-fixed .nav li a:focus, .navbar-custom.is-fixed .nav li a:hover {
+        color: #0085A1;
+        /*color: #00d4ff;*/
+    }
+}
+.subheading a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.subheading a:hover{
+    color: #00d4ff;
+}
+.alamat a {
+    text-decoration: none;
+}
+#back-to-top a{
+    text-decoration: none;
+}
+.post-meta.author a{
+    text-decoration: none;
+}
+a:hover, a:focus {
+     text-decoration: none; 
+}
+.post-preview>.post-meta>a:focus, .post-preview>.post-meta>a:hover {
+    text-decoration: none; 
+}
+.Share-Button{
+    padding:0;
+    margin: 0;
 }

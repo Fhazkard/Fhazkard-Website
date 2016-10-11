@@ -41,6 +41,21 @@ namespace Fhazkard_Website.Controllers
 
             return View(blog);
         }
+        public async Task<IActionResult> Post(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var blog = await _context.Blog.SingleOrDefaultAsync(m => m.Id == id);
+            if (blog == null)
+            {
+                return NotFound();
+            }
+
+            return View(blog);
+        }
 
         // GET: Blog/Create
         public IActionResult Create()

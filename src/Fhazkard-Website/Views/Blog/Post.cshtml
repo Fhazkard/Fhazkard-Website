@@ -1,0 +1,25 @@
+﻿@model Fhazkard_Website.Models.BlogViewModels.Blog
+
+@{
+    ViewData["Title"] = "Post";
+}
+
+<h2>@Html.DisplayFor(model => model.title_blog)</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12">
+            <div class="col-xs-6 col-lg-6">
+                <h4 class="h4_created" align="left">Author : @Html.DisplayFor(model => model.author_name)</h4>
+            </div>
+            <div class="col-xs-6 col-lg-6">
+                <h4 class="h4_created" align="right">Created : @Html.DisplayFor(model => model.create_date)</h4>
+            </div>
+        </div>        
+        <div class="col-xs-12 col-lg-12">
+            <hr /> 
+            @Html.Raw(Model.content_blog)
+        </div>      
+    </div>     
+</div>
+
