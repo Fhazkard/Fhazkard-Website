@@ -24,7 +24,7 @@ namespace Fhazkard_Website.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "My profile description page";
+            ViewData["Message"] = "Description page";
 
             return View();
         }

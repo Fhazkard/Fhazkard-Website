@@ -3,7 +3,43 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fhazkard - @ViewData["Title"]</title>
+    <meta property="fb:admins" content="{Fhazkard}" />
+    <meta name="description" content="Make Easy Blog For Everyone. We give all you need for blog. Responsive Blog is better for you."/>
+    <meta name="keywords" content="Fh"/>
+    <meta name="keywords" content="Fha" />
+    <meta name="keywords" content="Fhaz" />
+    <meta name="keywords" content="Fhazk" />
+    <meta name="keywords" content="Fhazka" />
+    <meta name="keywords" content="Fhazkar" />
+    <meta name="keywords" content="Fhazkard" />
+    <meta name="keywords" content="Fhazkard.com" />
+    <meta name="keywords" content="Fhazkard blog" />
+    <meta name="keywords" content="Fhazkard coding" />
+    <meta name="keywords" content="Fhazkard Home" />
+    <meta name="keywords" content="Fhazkard About" />
+    <meta name="keywords" content="Fhazkard Tentang" />
+    <meta name="keywords" content="Fhazkard Contact" />
+    <meta name="keywords" content="Fhazkard Kontak" />
+    <meta name="keywords" content="Fhazkard Video" />
+    <meta name="keywords" content="Fhazkard Video Tutorial" />
+    <meta name="keywords" content="Fhazkard Tutorial" />
+    <meta name="keywords" content="Fhazkard Writing" />
+    <meta name="keywords" content="Fhazkard Menulis" />
+    <meta name="keywords" content="Fhazkard Article" />
+    <meta name="keywords" content="Fhazkard Artikel" />
+    <meta name="keywords" content="Fhazkard News" />
+    <meta name="keywords" content="Fhazkard Berita" />
+    <meta name="keywords" content="Fhazkard Email" />
+    <meta name="keywords" content="Fhazkard Line" />
+    <meta name="keywords" content="Fhazkard FB" />
+    <meta name="keywords" content="Fhazkard Facebook" />
+    <meta name="keywords" content="Fhazkard Twitter" />
+    <meta name="keywords" content="Fhazkard Youtube" />
+    <meta name="keywords" content="Fhazkard PHP" />
+    <meta name="keywords" content="Fhazkard Mysql" />
+    <meta name="keywords" content="Fhazkard Github" />
+
+    <title>Fhazkard - Easy Blog For Everyone["Title"]</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -25,6 +61,23 @@
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     </environment>
+    <script>
+        window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '1244288892301529',
+        xfbml      : true,
+        version    : 'v2.8'
+        });
+        };
+        (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" 　defer="defer"></script>
 </head>
 
 
@@ -57,6 +110,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
                         <h1>Fhazkard Blog</h1>
+                        <h3 class="h3-sub">Easy Blog For Everyone</h3>
                         <hr class="small">
                         <span class="subheading">          
                             <a asp-area="" asp-controller="Home" asp-action="Index">Coding</a> - 
@@ -70,94 +124,100 @@
             </div>
         </div>
     </header>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />       
-        <!-- Footer -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 Share-Button">
-                    <ul class="list-inline text-left">
-                        <li>
-                            <div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en" align="left"></div>
-                            <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" 　defer="defer"></script>
-                        </li>
-                        <li>
-                            <a class="twitter-share-button"
-                               href="https://twitter.com/intent/"
-                               data-size="large"
-                               data-url=""
-                               data-via="Fhazkard"
-                               data-related="Fhazkard"
-                               data-hashtags="Fhazkard,FhazkardBlog, Fhazkard.com"
-                               data-text="Im Sharing About!">
-                            </a>
-                        </li>
-                        <li>
-                            <script>
-                              window.fbAsyncInit = function() {
-                                FB.init({
-                                  appId      : '1244288892301529',
-                                  xfbml      : true,
-                                  version    : 'v2.8'
-                                });
-                              };
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-xs-4" >
+                <div class="fb-comments" data-href="http://fhazkard.com/" data-numposts="5"></div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-xs-8">
+                @RenderBody()
 
-                              (function(d, s, id){
-                                 var js, fjs = d.getElementsByTagName(s)[0];
-                                 if (d.getElementById(id)) {return;}
-                                 js = d.createElement(s); js.id = id;
-                                 js.src = "//connect.facebook.net/en_US/sdk.js";
-                                 fjs.parentNode.insertBefore(js, fjs);
-                               }(document, 'script', 'facebook-jssdk'));
-                            </script>
-                            <div class="fb-like"
-                                 data-share="true"
-                                 data-width="450"
-                                 data-show-faces="true">
-                            </div>
-                        </li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </div>
-        <div id="back-to-top" align="right"><a href="#">Back to Top</a> </div>              
-        <footer>                     
-           <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <ul class="list-inline text-center">
-                            <li>
-                                <a href="https://twitter.com/Fhazkard">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/Fhazkard">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/channel/UC7J9KA5CIiytNtriTA8jSMQ">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-muted">Copyright &copy; <a asp-area="" asp-controller="Home" asp-action="Index"><strong>Fhazkard</strong></a> 2016</p>
+                <!-- Share Button -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-1 Share-Button">
+                            <ul class="list-inline text-left">
+                                <li>
+                                    <div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en" align="left"></div>
+                                </li>
+                                <li>
+                                    <a class="twitter-share-button"
+                                       href="https://twitter.com/intent/"
+                                       data-size="small"
+                                       data-url=""
+                                       data-via="Fhazkard"
+                                       data-related="Fhazkard"
+                                       data-hashtags="Fhazkard,FhazkardBlog, Fhazkard.com"
+                                       data-text="Im Sharing About!">
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="fb-like"
+                                         data-share="true"
+                                         data-width="450"
+                                         data-show-faces="true">
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
                     </div>
-                </div>
+                </div> <!-- Share Button End-->
+                <div id="back-to-top" align="right"><a href="#">Back to Top</a> </div>
             </div>
-        </footer>
+                <!-- Footer -->
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                                <ul class="list-inline text-center">
+                                    <li>
+                                        <a href="https://twitter.com/Fhazkard">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.facebook.com/Fhazkard">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.youtube.com/channel/UC7J9KA5CIiytNtriTA8jSMQ">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://github.com/Fhazkard/">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://medium.com/@@Fhazkard">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <p class="copyright text-muted">Copyright &copy; <a asp-area="" asp-controller="Home" asp-action="Index"><strong>Fhazkard</strong></a> 2016</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer> <!-- Footer -->
+        </div>
     </div>
    
     <environment names="Development">
