@@ -40,7 +40,7 @@
     <meta name="keywords" content="Fhazkard Github" />
 
     <meta property="og:title" content="Fhazkard" />
-    <meta property="og:type" content="Text" />
+    <meta property="og:type" content="Website" />
     <meta property="og:url" content="http://fhazkard.com/" />
     <meta property="og:image" content="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/14519886_10207316407056912_3296194205163391847_n.jpg?oh=81dba400b09c3fafd0d05b7d13df4307&oe=586D5D6B" />
     <meta property="og:description"
@@ -162,24 +162,46 @@
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 col-xs-8">
-                <div>
-                    <script type="text/javascript">
-                        google_ad_client = "ca-pub-2539633924824960";
-                        google_ad_slot = "8061834730";
-                        google_ad_width = 728;
-                        google_ad_height = 100;
-                    </script>
-                    <!-- Ad Panjang -->
-                    <script type="text/javascript"
-                            src="//pagead2.googlesyndication.com/pagead/show_ads.js">
-                    </script>
-                </div>
+                            <ul class="list-inline text-left share-topline" @ViewData["display"]>
+                                <li>
+                                    <div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en" align="left"></div>
+                                </li>
+                                <li>
+                                    <a class="twitter-share-button"
+                                       href="https://twitter.com/intent/"
+                                       data-size="small"
+                                       data-url=""
+                                       data-via="Fhazkard"
+                                       data-related="Fhazkard"
+                                       data-hashtags="Fhazkard,FhazkardBlog, Fhazkard.com"
+                                       data-text="Im Sharing About!">
+                                    </a>
+                                </li>
+                                <li>
+                                    <!-- Place this tag where you want the share button to render. -->
+                                    <div class="g-plus" data-action="share" data-annotation="none"></div>
+                                    <!-- Place this tag after the last share tag. -->
+                                    <script type="text/javascript">
+                                      (function() {
+                                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                        po.src = 'https://apis.google.com/js/platform.js';
+                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                      })();
+                                    </script>
+                                </li>
+                                <li>
+                                    <div class="fb-like"
+                                         data-width="450"
+                                         data-layout="button_count" data-action="like" data-size="small"
+                                         data-show-faces="true">
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div>
+                                </li>
+                            </ul>         
                 @RenderBody()
-
                 <!-- Share Button -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-1 Share-Button">
                             <ul class="list-inline text-left">
                                 <li>
                                     <div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en" align="left"></div>
@@ -196,17 +218,40 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <div class="fb-like"
-                                         data-share="true"
-                                         data-width="450"
-                                         data-show-faces="true">
-                                    </div>
+                                    <!-- Place this tag where you want the share button to render. -->
+                                    <div class="g-plus" data-action="share" data-annotation="none"></div>
+                                    <!-- Place this tag after the last share tag. -->
+                                    <script type="text/javascript">
+                                      (function() {
+                                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                        po.src = 'https://apis.google.com/js/platform.js';
+                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                      })();
+                                    </script>
                                 </li>
+                                <li>
+                                    <div class="fb-like"
+                                         data-width="450"
+                                         data-layout="button_count" data-action="like" data-size="small"
+                                         data-show-faces="true">
+                                    </div>                                                           
+                                </li>
+                                <li>
+                                    <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div> 
+                                </li>         
                             </ul>
-
-                        </div>
-                    </div>
-                </div> <!-- Share Button End-->
+                <div>
+                    <script type="text/javascript">
+                        google_ad_client = "ca-pub-2539633924824960";
+                        google_ad_slot = "8061834730";
+                        google_ad_width = 728;
+                        google_ad_height = 100;
+                    </script>
+                    <!-- Ad Panjang -->
+                    <script type="text/javascript"
+                            src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+                    </script>
+                </div>
                 <div id="back-to-top" align="right"><a href="#">Back to Top</a> </div>
             </div>
                 <!-- Footer -->
@@ -252,6 +297,14 @@
                                             <span class="fa-stack fa-lg">
                                                 <i class="fa fa-circle fa-stack-2x"></i>
                                                 <i class="fa fa-medium fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://plus.google.com/114590919888124389755">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-circle fa-stack-2x"></i>
+                                                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
                                             </span>
                                         </a>
                                     </li>

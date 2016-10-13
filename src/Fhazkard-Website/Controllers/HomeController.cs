@@ -25,14 +25,14 @@ namespace Fhazkard_Website.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Description page";
-
+            ViewData["display"] = "Hidden";
             return View();
         }
 
         public IActionResult Contact()
         {
             ViewData["Message"] = "My contact page";
-
+            ViewData["display"] = "Hidden";
             return View();
         }
 
