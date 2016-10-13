@@ -148,14 +148,12 @@
     </header>
     <div class="container-fluid body-content">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-xs-4" >               
+            <div class="col-xs-4 col-md-4 col-lg-4 left-comment">               
                 <div class="fb-comments" data-href="http://fhazkard.com/" data-numposts="5"></div>
-                <div>
+                <div style="width:100%;height:auto;">
                     <script type="text/javascript">
                         google_ad_client = "ca-pub-2539633924824960";
                         google_ad_slot = "6585101532";
-                        google_ad_width = 500;
-                        google_ad_height = 480;
                     </script>
                     <!-- Ad Kotak Besar -->
                     <script type="text/javascript"
@@ -163,7 +161,7 @@
                     </script>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-8 col-xs-8">
+            <div class="col-xs-8 col-md-8 col-lg-8">
                             <ul class="list-inline text-left share-topline" @ViewData["display"]>
                                 <li>
                                     <div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en" align="left"></div>
@@ -199,54 +197,54 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div>
+                                    <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse"></a></div>
                                 </li>
                             </ul>         
                 @RenderBody()
+                <br />
                 <!-- Share Button -->
-                            <ul class="list-inline text-left">
-                                <li>
-                                    <div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en" align="left"></div>
-                                </li>
-                                <li>
-                                    <a class="twitter-share-button"
-                                       href="https://twitter.com/intent/"
-                                       data-size="small"
-                                       data-url=""
-                                       data-via="Fhazkard"
-                                       data-related="Fhazkard"
-                                       data-hashtags="Fhazkard,FhazkardBlog, Fhazkard.com"
-                                       data-text="Im Sharing About!">
-                                    </a>
-                                </li>
-                                <li>
-                                    <!-- Place this tag where you want the share button to render. -->
-                                    <div class="g-plus" data-action="share" data-annotation="none"></div>
-                                    <!-- Place this tag after the last share tag. -->
-                                    <script type="text/javascript">
-                                      (function() {
-                                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                        po.src = 'https://apis.google.com/js/platform.js';
-                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                      })();
-                                    </script>
-                                </li>
-                                <li>
-                                    <div class="fb-like"
-                                         data-width="450"
-                                         data-layout="button_count" data-action="like" data-size="small"
-                                         data-show-faces="true">
-                                    </div>                                                           
-                                </li>
-                                <li>
-                                    <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse">Share</a></div> 
-                                </li>         
-                            </ul>
-                <div>
+                    <ul class="list-inline text-left">
+                        <li>
+                            <div class="line-it-button" style="display: none;" data-type="share-a" data-lang="en" align="left"></div>
+                        </li>
+                        <li>
+                            <a class="twitter-share-button"
+                               href="https://twitter.com/intent/"
+                               data-size="small"
+                               data-url=""
+                               data-via="Fhazkard"
+                               data-related="Fhazkard"
+                               data-hashtags="Fhazkard,FhazkardBlog, Fhazkard.com"
+                               data-text="Im Sharing About!">
+                            </a>
+                        </li>
+                        <li>
+                            <!-- Place this tag where you want the share button to render. -->
+                            <div class="g-plus" data-action="share" data-annotation="none"></div>
+                            <!-- Place this tag after the last share tag. -->
+                            <script type="text/javascript">
+                                (function () {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/platform.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            </script>
+                        </li>
+                        <li>
+                            <div class="fb-like"
+                                 data-width="450"
+                                 data-layout="button_count" data-action="like" data-size="small"
+                                 data-show-faces="true">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fb-share-button" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u&amp;src=sdkpreparse"></a></div>
+                        </li>
+                    </ul>
+                <div style="width: 100%;" align="center">
                     <script type="text/javascript">
                         google_ad_client = "ca-pub-2539633924824960";
                         google_ad_slot = "8061834730";
-                        google_ad_width = 728;
                         google_ad_height = 100;
                     </script>
                     <!-- Ad Panjang -->
@@ -254,13 +252,13 @@
                             src="//pagead2.googlesyndication.com/pagead/show_ads.js">
                     </script>
                 </div>
+                <div class="fb-comments bottom" data-href="http://fhazkard.com/" data-numposts="5"></div>
                 <div id="back-to-top" align="right"><a href="#">Back to Top</a> </div>
+                <hr>
             </div>
-                <!-- Footer -->
-                <footer>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- Footer -->    
+            <footer>             
+                            <div class="col-xs-12  col-md-12 col-lg-12 ">
                                 <ul class="list-inline text-center">
                                     <li>
                                         <a href="https://twitter.com/Fhazkard">
@@ -312,9 +310,7 @@
                                     </li>
                                 </ul>
                                 <p class="copyright text-muted">Copyright &copy; <a asp-area="" asp-controller="Home" asp-action="Index"><strong>Fhazkard</strong></a> 2016</p>
-                            </div>
-                        </div>
-                    </div>
+                            </div>        
                 </footer> <!-- Footer -->
         </div>
     </div>
