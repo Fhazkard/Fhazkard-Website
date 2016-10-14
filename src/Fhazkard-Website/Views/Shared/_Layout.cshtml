@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="image" content="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/14666160_10207353948155416_3906365198303961578_n.jpg?oh=62598bba312b5670d22324227ecc810f&oe=589A2C52" />
     <meta property="fb:admins" content="{Fhazkard}" />
     <meta name="description" content="Make Easy Blog For Everyone. We give all you need for blog. Responsive Blog is better for you."/>
     <meta name="keywords" content="Fh"/>
@@ -39,7 +40,7 @@
     <meta name="keywords" content="Fhazkard Mysql" />
     <meta name="keywords" content="Fhazkard Github" />
 
-    <meta property="og:title" content="Fhazkard" />
+    <meta property="og:title" content="Fhazkard - Easy Blog For Everyone" />
     <meta property="og:type" content="Website" />
     <meta property="og:url" content="http://fhazkard.com/" />
     <meta property="og:image" content="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/14666160_10207353948155416_3906365198303961578_n.jpg?oh=62598bba312b5670d22324227ecc810f&oe=589A2C52" />
@@ -52,7 +53,6 @@
     <meta name="google-site-verification" content="IJXFSZIdxysxH324jMqjfYI2l9RPvXXa0iWtAruGny4" />
 
     <title>Fhazkard - Easy Blog For Everyone</title>
-
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -76,22 +76,8 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon-96x96.png" />
     </environment>
-    <script>
-        window.fbAsyncInit = function() {
-        FB.init({
-        appId      : '1244288892301529',
-        xfbml      : true,
-        version    : 'v2.8'
-        });
-        };
-        (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <script src="~/js/fb.js"></script>
+    <script src="~/js/google.js"></script>
     <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" 　defer="defer"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -102,18 +88,8 @@
       ga('require', 'linkid');
       ga('send', 'pageview');
     </script>
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-84762732-3', 'auto');
-      ga('require', 'linkid');
-      ga('send', 'pageview');
-    </script>
 </head>
 <body>
-    <!-- End Google Tag Manager (noscript) -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header page-scroll">
@@ -183,7 +159,7 @@
                                        data-url=""
                                        data-via="Fhazkard"
                                        data-related="Fhazkard"
-                                       data-hashtags="Fhazkard,FhazkardBlog, Fhazkard.com"
+                                       data-hashtags="Fhazkard,Fhaz"
                                        data-text="Im Sharing About!">
                                     </a>
                                 </li>
@@ -191,13 +167,6 @@
                                     <!-- Place this tag where you want the share button to render. -->
                                     <div class="g-plus" data-action="share" data-annotation="none"></div>
                                     <!-- Place this tag after the last share tag. -->
-                                    <script type="text/javascript">
-                                      (function() {
-                                        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                        po.src = 'https://apis.google.com/js/platform.js';
-                                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                      })();
-                                    </script>
                                 </li>
                                 <li>
                                     <div class="fb-like"
@@ -232,13 +201,6 @@
                             <!-- Place this tag where you want the share button to render. -->
                             <div class="g-plus" data-action="share" data-annotation="none"></div>
                             <!-- Place this tag after the last share tag. -->
-                            <script type="text/javascript">
-                                (function () {
-                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-                                    po.src = 'https://apis.google.com/js/platform.js';
-                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-                                })();
-                            </script>
                         </li>
                         <li>
                             <div class="fb-like"
@@ -334,24 +296,6 @@
         <script src="~/js/clean-blog.min.js"></script>
         <script src="//platform.twitter.com/widgets.js"></script>
     </environment>
-    <script>
-			jQuery(document).ready(function() {
-				var offset = 300;
-				var duration = 1000;
-				jQuery(window).scroll(function() {
-					if (jQuery(this).scrollTop() > offset) {
-						jQuery('.back-to-top').fadeIn(duration);
-					} else {
-						jQuery('.back-to-top').fadeOut(duration);
-					}
-				});
-				jQuery('#back-to-top').click(function(event) {
-					event.preventDefault();
-					jQuery('html, body').animate({scrollTop: 0}, duration);
-					return false;
-				})
-			});
-    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
