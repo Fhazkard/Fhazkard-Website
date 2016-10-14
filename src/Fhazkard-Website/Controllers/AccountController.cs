@@ -44,6 +44,7 @@ namespace Fhazkard_Website.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            ViewData["display"] = "Hidden";
             return View();
         }
 
@@ -92,6 +93,7 @@ namespace Fhazkard_Website.Controllers
         public IActionResult Register(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
+            ViewData["display"] = "Hidden";
             return View();
         }
 

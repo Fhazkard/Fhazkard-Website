@@ -12,7 +12,6 @@ using Microsoft.Extensions.Logging;
 using Fhazkard_Website.Data;
 using Fhazkard_Website.Models;
 using Fhazkard_Website.Services;
-
 namespace Fhazkard_Website
 {
     public class Startup

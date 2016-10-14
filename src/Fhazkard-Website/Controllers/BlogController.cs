@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fhazkard_Website.Data;
 using Fhazkard_Website.Models.BlogViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fhazkard_Website.Controllers
 {
+    [Authorize]
     public class BlogController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,13 +20,12 @@ namespace Fhazkard_Website.Controllers
         {
             _context = context;    
         }
-
+        
         // GET: Blog
         public async Task<IActionResult> Index()
         {
             return View(await _context.Blog.ToListAsync());
-        }
-
+        }      
         // GET: Blog/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -41,6 +42,8 @@ namespace Fhazkard_Website.Controllers
 
             return View(blog);
         }
+        //Post
+        [AllowAnonymous]
         public async Task<IActionResult> Post(int? id)
         {
             if (id == null)
