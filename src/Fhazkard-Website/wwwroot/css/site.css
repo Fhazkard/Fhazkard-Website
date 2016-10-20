@@ -253,3 +253,6 @@ dt, dd {
 #btn-eksternal{
     margin-top: 5px;
 }
+.checkbox label, .radio label {
+    padding-left: 0px;
+}
