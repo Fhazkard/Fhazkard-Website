@@ -92,8 +92,8 @@ namespace Fhazkard_Website.Controllers
         {
             ViewData["ReturnUrl"] = returnUrl;
             ViewData["display"] = "Hidden";
-            //return LocalRedirect("/");
-            return View();
+            return LocalRedirect("/");
+            //return View();
         }
 
         //
