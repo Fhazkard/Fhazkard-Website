@@ -16,9 +16,9 @@
                         </a>
                             <div class="post-subtitle">
                               @{ string konten = item.content_blog;
-                                  if (konten.Length > 400)
+                                  if (konten.Length > 800)
                                   {
-                                      konten = konten.Substring(0, 400);                                 
+                                      konten = konten.Substring(0, 800);                                 
                                       @Html.Raw(konten+"--")<br />
                                       <hr>
                                       <a asp-controller="blog" asp-action="post" asp-route-id="@item.Id"><strong>Read More...</strong></a>
