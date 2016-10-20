@@ -1,13 +1,14 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fhazkard_Website.Data;
 using Fhazkard_Website.Models.BlogViewModels;
 using Microsoft.AspNetCore.Authorization;
+using System;
+using Fhazkard_Website.Models;
+using Microsoft.AspNetCore.Identity;
+using Fhazkard_Website.Models.ManageViewModels;
 
 namespace Fhazkard_Website.Controllers
 {
@@ -18,12 +19,17 @@ namespace Fhazkard_Website.Controllers
 
         public BlogController(ApplicationDbContext context)
         {
-            _context = context;    
+            _context = context;
         }
         
+        //[Authorize(Roles = "Administrator")]
+        [AllowAnonymous]
         // GET: Blog
         public async Task<IActionResult> Index()
         {
+            
+            //HttpContext.Authentication.ChallengeAsync();
+            ViewData["display"] = "Hidden";
             return View(await _context.Blog.ToListAsync());
         }      
         // GET: Blog/Details/5
@@ -59,10 +65,16 @@ namespace Fhazkard_Website.Controllers
 
             return View(blog);
         }
-
+       
         // GET: Blog/Create
         public IActionResult Create()
         {
+            DateTime tgl = DateTime.Now;
+
+            ViewData["author"] = ManageController.data_author;
+            ViewData["tgl"] = tgl.ToString("yyyy-MM-dd");
+            ViewData["display"] = "Hidden";
+            //ViewData["box-comment"] = "Hidden";
             return View();
         }
 
@@ -85,6 +97,7 @@ namespace Fhazkard_Website.Controllers
         // GET: Blog/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["display"] = "Hidden";
             if (id == null)
             {
                 return NotFound();
@@ -136,6 +149,7 @@ namespace Fhazkard_Website.Controllers
         // GET: Blog/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            ViewData["display"] = "Hidden";
             if (id == null)
             {
                 return NotFound();

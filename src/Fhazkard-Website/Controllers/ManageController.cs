@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,25 +7,31 @@ using Microsoft.Extensions.Logging;
 using Fhazkard_Website.Models;
 using Fhazkard_Website.Models.ManageViewModels;
 using Fhazkard_Website.Services;
+using Fhazkard_Website.Data;
 
 namespace Fhazkard_Website.Controllers
 {
+    [RequireHttps]
     [Authorize]
     public class ManageController : Controller
     {
+        public static string data_author;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private readonly ApplicationDbContext db;
 
         public ManageController(
         UserManager<ApplicationUser> userManager,
         SignInManager<ApplicationUser> signInManager,
+        ApplicationDbContext _db,
         IEmailSender emailSender,
         ISmsSender smsSender,
         ILoggerFactory loggerFactory)
         {
+            db = _db;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -47,6 +51,7 @@ namespace Fhazkard_Website.Controllers
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : message == ManageMessageId.SetAuthorSucces ? "Your Author Name has been changed."
                 : "";
 
             var user = await GetCurrentUserAsync();
@@ -54,14 +59,20 @@ namespace Fhazkard_Website.Controllers
             {
                 return View("Error");
             }
+            var data = db.AspNetUser.Single(m => m.Id == user.Id);
+            
             var model = new IndexViewModel
             {
+                Email = await _userManager.GetEmailAsync(user),
+                author =  data.author_name,
                 HasPassword = await _userManager.HasPasswordAsync(user),
                 PhoneNumber = await _userManager.GetPhoneNumberAsync(user),
                 TwoFactor = await _userManager.GetTwoFactorEnabledAsync(user),
                 Logins = await _userManager.GetLoginsAsync(user),
                 BrowserRemembered = await _signInManager.IsTwoFactorClientRememberedAsync(user)
             };
+            data_author = model.author;
+            ViewData["display"] = "Hidden";
             return View(model);
         }
 
@@ -209,6 +220,7 @@ namespace Fhazkard_Website.Controllers
         [HttpGet]
         public IActionResult ChangePassword()
         {
+            ViewData["display"] = "Hidden";
             return View();
         }
 
@@ -238,11 +250,48 @@ namespace Fhazkard_Website.Controllers
             return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
         }
 
+        // GET: /Manage/SetUsername
+        [HttpGet]
+        public IActionResult SetAuthor()
+        {
+            ViewData["display"] = "Hidden";
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetAuthor(SetAuthorViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await GetCurrentUserAsync();
+            if (user != null)
+            {
+                var data = db.AspNetUser.Single(m => m.Id == user.Id);
+                data.author_name = model.SetAuthor;
+
+                var result = await db.SaveChangesAsync();
+                if (result == 1)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction(nameof(Index), new { Message = ManageMessageId.SetAuthorSucces });
+                }
+                IdentityResult error = new IdentityResult();
+                AddErrors(error);
+                return View(model);
+            }
+            return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
+        }
+
         //
         // GET: /Manage/SetPassword
         [HttpGet]
         public IActionResult SetPassword()
         {
+            ViewData["display"] = "Hidden";
             return View();
         }
 
@@ -289,6 +338,7 @@ namespace Fhazkard_Website.Controllers
             var userLogins = await _userManager.GetLoginsAsync(user);
             var otherLogins = _signInManager.GetExternalAuthenticationSchemes().Where(auth => userLogins.All(ul => auth.AuthenticationScheme != ul.LoginProvider)).ToList();
             ViewData["ShowRemoveButton"] = user.PasswordHash != null || userLogins.Count > 1;
+            ViewData["display"] = "Hidden";
             return View(new ManageLoginsViewModel
             {
                 CurrentLogins = userLogins,
@@ -340,6 +390,7 @@ namespace Fhazkard_Website.Controllers
 
         public enum ManageMessageId
         {
+            SetAuthorSucces,
             AddPhoneSuccess,
             AddLoginSuccess,
             ChangePasswordSuccess,

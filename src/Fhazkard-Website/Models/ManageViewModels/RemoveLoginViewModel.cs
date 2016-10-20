@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Fhazkard_Website.Models.ManageViewModels
+﻿namespace Fhazkard_Website.Models.ManageViewModels
 {
     public class RemoveLoginViewModel
     {

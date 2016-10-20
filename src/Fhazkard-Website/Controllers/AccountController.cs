@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -64,7 +62,7 @@ namespace Fhazkard_Website.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToLocal("/manage");
                 }
                 if (result.RequiresTwoFactor)
                 {
@@ -94,6 +92,7 @@ namespace Fhazkard_Website.Controllers
         {
             ViewData["ReturnUrl"] = returnUrl;
             ViewData["display"] = "Hidden";
+            //return LocalRedirect("/");
             return View();
         }
 
@@ -107,7 +106,7 @@ namespace Fhazkard_Website.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, author_name = model.Email};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

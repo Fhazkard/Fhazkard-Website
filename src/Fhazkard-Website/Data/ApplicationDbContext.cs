@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Fhazkard_Website.Models;
 using Fhazkard_Website.Models.BlogViewModels;
@@ -15,7 +11,6 @@ namespace Fhazkard_Website.Data
             : base(options)
         {
         }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -25,5 +20,6 @@ namespace Fhazkard_Website.Data
         }
 
         public DbSet<Blog> Blog { get; set; }
+        public DbSet<ApplicationUser> AspNetUser { get; set;}
     }
 }

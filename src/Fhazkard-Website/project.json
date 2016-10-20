@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-Fhazkard_Website-9fefb278-53a2-43af-812b-c2905a7d2c47",
 
   "dependencies": {
@@ -43,8 +43,8 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.AspNetCore.Authentication.Facebook": "1.0.0"
-  },
+    "Microsoft.AspNetCore.Authentication.Facebook": "1.0.0",
+    "Microsoft.AspNetCore.Owin": "1.0.0"  },
 
   "tools": {
     "BundlerMinifier.Core": "2.0.238",

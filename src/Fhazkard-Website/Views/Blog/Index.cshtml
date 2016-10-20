@@ -1,52 +1,61 @@
 @model IEnumerable<Fhazkard_Website.Models.BlogViewModels.Blog>
-
+@using Microsoft.AspNetCore.Authorization;
+@inject IAuthorizationService AuthorizationServicel;
 
 @{
     ViewData["Title"] = "Blog List";
 }
 
 <h2>Blog List</h2>
-
-<p>
-<a asp-action="create" role="button" class="btn btn-default">Create New</a>
-</p>
+<ul class="list-inline">
+    @if (await AuthorizationServicel.AuthorizeAsync(User, Model, "Member"))
+    {
+        <li>
+            <a asp-controller="Blog" asp-action="create" role="button" class="btn btn-default">Create New Blog</a>
+        </li>
+        <li>
+            <a asp-controller="Blog" asp-action="Index" role="button" class="btn btn-default">My Blog List</a>
+        </li>
+    }
+    
+</ul>
 <table class="table blog" border="0">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.title_blog)
             </th>                               
-            @*<th>
-                @Html.DisplayNameFor(model => model.create_date)
-            </th>*@
             <th>
-                @Html.DisplayNameFor(model => model.content_blog)
+                @Html.DisplayNameFor(model => model.create_date)
             </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.content_blog)
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.author_name)
             </th> 
-            <th></th>         
+            @*<th></th>*@         
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.OrderByDescending(m => m.Id)) {
         <tr>
             <th style="max-width:500px;">
-                <a asp-action="details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.title_blog)</a>             
+                <a asp-action="post" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.title_blog)</a>             
             </th>                       
-            @*<th>
+            <th>
                 @Html.DisplayFor(modelItem => item.create_date)
-            </th>*@
-            <th style="max-width:480px;">
-                @Html.DisplayFor(modelItem => item.content_blog)
             </th>
+            @*<th style="max-width:480px;">
+                @Html.DisplayFor(modelItem => item.content_blog)
+            </th>*@
             <th style="max-width:100px;">
                 @Html.DisplayFor(modelItem => item.author_name)
             </th>          
-            <td style="max-width:100px;">
-                @*<a asp-action="edit" asp-route-id="@item.Id" data-toggle="tooltip" title="EDIT"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> |*@
+            @*<td style="max-width:100px;">
+                <a asp-action="edit" asp-route-id="@item.Id" data-toggle="tooltip" title="EDIT"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> |
                 <a asp-action="delete" asp-route-id="@item.Id" data-toggle="tooltip" title="DELETE"><i class="fa fa-trash" aria-hidden="true"></i></a>
-            </td>
+            </td>*@
         </tr>
 }
     </tbody>

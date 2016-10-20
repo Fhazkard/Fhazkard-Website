@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +8,8 @@ using Microsoft.Extensions.Logging;
 using Fhazkard_Website.Data;
 using Fhazkard_Website.Models;
 using Fhazkard_Website.Services;
+using Microsoft.AspNetCore.Mvc;
+
 namespace Fhazkard_Website
 {
     public class Startup
@@ -50,8 +48,15 @@ namespace Fhazkard_Website
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
-            services.AddMvc();
+            
+            services.AddMvc(options =>
+                {
+                    options.Filters.Add(new RequireHttpsAttribute ());
+                });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Member", policy => policy.RequireAuthenticatedUser());
+            });
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
@@ -78,6 +83,11 @@ namespace Fhazkard_Website
             app.UseStaticFiles();
 
             app.UseIdentity();
+            app.UseFacebookAuthentication(new FacebookOptions()
+            {
+                AppId = "1244288892301529",
+                AppSecret = "54d07bd40dc55164740907c662ffe1a6"
+            });
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
 

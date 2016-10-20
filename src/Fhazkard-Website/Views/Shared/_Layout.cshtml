@@ -56,27 +56,27 @@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" href="~/css/clean-blog.min.css" />
-        <link rel="stylesheet" href="~/css/Style.css" />
+        <link rel="stylesheet" href="~/css/clean-blog.min.css" />      
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon-96x96.png" />
+        <link href="~/css/summernote.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/clean-blog.min.css" />
-        <link rel="stylesheet" href="~/css/Style.css" />
+        <link rel="stylesheet" href="~/css/clean-blog.min.css" />        
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" type="image/x-icon" href="~/images/favicon-96x96.png" />
+        <link href="~/css/summernote.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    <script src="~/js/fb.js"></script>
+    @*<script src="~/js/fb.js"></script>*@
     <script src="~/js/google.js"></script>
     <script src="//scdn.line-apps.com/n/line_it/thirdparty/loader.min.js" async="async" 　defer="defer"></script>
     <script>
@@ -88,6 +88,25 @@
       ga('require', 'linkid');
       ga('send', 'pageview');
     </script>
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1244288892301529',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+      };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -105,10 +124,10 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    @*<li><a asp-area="" asp-controller="Blog" asp-action="Index">Blog</a></li>*@
+                    <li><a asp-area="" asp-controller="Blog" asp-action="Index">Blog</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
-                @*@await Html.PartialAsync("_LoginPartial")*@
+                @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
@@ -134,8 +153,8 @@
     </header>
     <div class="container-fluid body-content">
         <div class="row">
-            <div class="col-xs-4 col-md-4 col-lg-4 left-comment">               
-                <div class="fb-comments" data-href="http://fhazkard.com/" data-numposts="5"></div>
+            <div class="col-xs-4 col-md-4 col-lg-4 left-comment"  @ViewData["box-comment"]>               
+                <div class="fb-comments" data-href="https://fhazkard.com/" data-numposts="5"></div>
                 <div style="width:100%;height:auto;">
                     <script type="text/javascript">
                         google_ad_client = "ca-pub-2539633924824960";
@@ -278,10 +297,12 @@
    
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>      
         <script src="~/js/clean-blog.min.js"></script>
         <script src="//platform.twitter.com/widgets.js"></script>
+        <script src="~/js/summernote.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
@@ -291,11 +312,17 @@
         <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </script>      
         <script src="~/js/clean-blog.min.js"></script>
         <script src="//platform.twitter.com/widgets.js"></script>
+        <script src="~/js/summernote.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
+    <script>
+    $(document).ready(function() {
+     $('#summernote').summernote();
+     });
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

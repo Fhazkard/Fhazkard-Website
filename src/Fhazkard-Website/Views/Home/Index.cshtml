@@ -20,6 +20,7 @@
                                   {
                                       konten = konten.Substring(0, 400);                                 
                                       @Html.Raw(konten+"--")<br />
+                                      <hr>
                                       <a asp-controller="blog" asp-action="post" asp-route-id="@item.Id"><strong>Read More...</strong></a>
                                   }
                                   else
@@ -29,7 +30,7 @@
                                   }
                             }                             
                             </div>                     
-                        <p class="post-meta author">Posted by <a href="/">Fhazkard</a> on @item.create_date.ToString("dd-MMM-yyyy")</p>                       
+                        <p class="post-meta author">Posted by <a href="/">@item.author_name</a> on @item.create_date.ToString("dd-MMM-yyyy")</p>                       
                     </div>
                  <hr>
                 }

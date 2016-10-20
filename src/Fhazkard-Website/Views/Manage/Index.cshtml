@@ -10,29 +10,31 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
+            <dt>Author Name:</dt>
+            <dd>
+                <a asp-controller="Manage" asp-action="SetAuthor">Change [@Model.author]</a>
+            </dd>    
         <dt>Password:</dt>
         <dd>
             @if (Model.HasPassword)
             {
-                <a asp-controller="Manage" asp-action="ChangePassword" class="btn-bracketed">Change</a>
+                <a asp-controller="Manage" asp-action="ChangePassword" >Change</a>
             }
             else
             {
-                <a asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">Create</a>
+                <a asp-controller="Manage" asp-action="SetPassword">Create</a>
             }
         </dd>
         <dt>External Logins:</dt>
         <dd>
 
-            @Model.Logins.Count <a asp-controller="Manage" asp-action="ManageLogins" class="btn-bracketed">Manage</a>
+            <a asp-controller="Manage" asp-action="ManageLogins">Manage [@Model.Logins.Count]</a>
         </dd>
         <dt>Phone Number:</dt>
-        <dd>
-            <p>
-                Phone Numbers can used as a second factor of verification in two-factor authentication.
+        <dd>Coming Soon
+                @*Phone Numbers can used as a second factor of verification in two-factor authentication.
                 See <a href="http://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
-            </p>
+                for details on setting up this ASP.NET application to support two-factor authentication using SMS.*@
             @*@(Model.PhoneNumber ?? "None")
                 @if (Model.PhoneNumber != null)
                 {
@@ -48,12 +50,10 @@
                 }*@
         </dd>
 
-        <dt>Two-Factor Authentication:</dt>
-        <dd>
-            <p>
-                There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
-                for setting up this application to support two-factor authentication.
-            </p>
+        <dt>Two-Factor <br />Authentication:</dt>
+        <dd><br /> Coming Soon
+                @*There are no two-factor authentication providers configured. See <a href="http://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
+                for setting up this application to support two-factor authentication.*@
             @*@if (Model.TwoFactor)
                 {
                     <form asp-controller="Manage" asp-action="DisableTwoFactorAuthentication" method="post" class="form-horizontal">
@@ -67,5 +67,9 @@
                     </form>
                 }*@
         </dd>
+        @*7ae753db-b9a7-41d8-af3f-6fe07b4f97f2*@
     </dl>
+    <hr>
 </div>
+
+

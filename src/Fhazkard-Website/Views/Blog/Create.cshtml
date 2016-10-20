@@ -1,5 +1,4 @@
 @model Fhazkard_Website.Models.BlogViewModels.Blog
-@using System.Globalization;
 
 @{
     ViewData["Title"] = "Create";
@@ -15,29 +14,29 @@
         <div class="form-group">
                 <label asp-for="title_blog" class="col-md-2 control-label"></label>
                 <div class="col-md-10">
-                    <input asp-for="title_blog" class="form-control" />
+                    <input id="input_title" asp-for="title_blog" class="form-control" required />
                     <span asp-validation-for="title_blog" class="text-danger" />
                 </div>
             </div>
         <div class="form-group">
-            <label asp-for="author_name" class="col-md-2 control-label"></label>
+            @*<label asp-for="author_name" class="col-md-2 control-label"></label>*@
             <div class="col-md-10">
-                <input asp-for="author_name" class="form-control" />
-                <span asp-validation-for="author_name" class="text-danger" />
+                <input type="hidden" asp-for="author_name" class="form-control disabled" value="@ViewData["author"]" required />
+                @*<span  asp-validation-for="author_name" class="text-danger" />*@
             </div>
         </div>       
         <div class="form-group">
-            <label asp-for="create_date" class="col-md-2 control-label"></label>
+            @*<label asp-for="create_date" class="col-md-2 control-label"></label>*@
             <div class="col-md-10">
-                <input asp-for="create_date" class="form-control" />
-                <span asp-validation-for="create_date" class="text-danger" />
+                <input type="hidden" asp-for="create_date" class="form-control disabled" value="@ViewData["tgl"]" required/>   
+                @*<span asp-validation-for="create_date" class="text-danger" />*@
             </div>
-        </div>
+        </div>       
         <div class="form-group">
             <label asp-for="content_blog" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <textarea asp-for="content_blog" rows="10" class="form-control"></textarea>
-                <span asp-validation-for="content_blog" class="text-danger"></span>                
+            <div class="col-md-10">          
+                <textarea id="summernote" asp-for="content_blog" class="form-control" required></textarea>
+                <span asp-validation-for="content_blog" class="text-danger"></span>              
             </div>
         </div>
         <div class="form-group">
@@ -45,12 +44,13 @@
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+        <hr>
     </div>
 </form>
 
-<div align="right">
+@*<div align="right">
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
