@@ -249,6 +249,9 @@ dt, dd {
     .col-md-10.login{
         float:none;
     }
+    .col-md-offset-2.login{
+        margin-left: 0px;
+    }
 }
 #btn-eksternal{
     margin-top: 5px;
