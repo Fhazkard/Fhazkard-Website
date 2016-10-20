@@ -35,6 +35,7 @@ namespace Fhazkard_Website.Controllers
 
         public IActionResult Error()
         {
+            ViewData["display"] = "Hidden";
             return View();
         }
     }

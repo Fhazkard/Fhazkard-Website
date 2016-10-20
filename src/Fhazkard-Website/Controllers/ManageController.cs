@@ -254,13 +254,8 @@ namespace Fhazkard_Website.Controllers
         [HttpGet]
         public IActionResult SetAuthor()
         {
-            IndexViewModel model = new IndexViewModel();   
-            if (model.author == model.Email)
-            {
                 ViewData["display"] = "Hidden";
                 return View();
-            }
-            return LocalRedirect("/manage");
         }
 
         [HttpPost]
@@ -275,6 +270,10 @@ namespace Fhazkard_Website.Controllers
             var user = await GetCurrentUserAsync();
             if (user != null)
             {
+                if (user.author_name != user.Email)
+                {
+                    return RedirectToAction(nameof(Index), "Manage");
+                }
                 var data = db.AspNetUser.Single(m => m.Id == user.Id);
                 data.author_name = model.SetAuthor;
 
