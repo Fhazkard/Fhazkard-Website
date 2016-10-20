@@ -10,10 +10,13 @@
     <h4>Change your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
+        @if (Model.author == Model.Email)
+        {
             <dt>Author Name:</dt>
             <dd>
-                <a asp-controller="Manage" asp-action="SetAuthor">Change [@Model.author]</a>
-            </dd>    
+                <a asp-controller="Manage" asp-action="SetAuthor">Set [@Model.author]</a>
+            </dd>
+        }              
         <dt>Password:</dt>
         <dd>
             @if (Model.HasPassword)

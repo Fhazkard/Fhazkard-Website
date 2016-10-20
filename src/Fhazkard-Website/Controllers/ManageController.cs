@@ -250,12 +250,17 @@ namespace Fhazkard_Website.Controllers
             return RedirectToAction(nameof(Index), new { Message = ManageMessageId.Error });
         }
 
-        // GET: /Manage/SetUsername
+        // GET: /Manage/SetAuthor
         [HttpGet]
         public IActionResult SetAuthor()
         {
-            ViewData["display"] = "Hidden";
-            return View();
+            IndexViewModel model = new IndexViewModel();   
+            if (model.author == model.Email)
+            {
+                ViewData["display"] = "Hidden";
+                return View();
+            }
+            return LocalRedirect("/manage");
         }
 
         [HttpPost]
