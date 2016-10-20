@@ -47,13 +47,13 @@
     </div>
     <div class="col-xs-6 col-md-6 col-lg-6" ">
         <section>
-            <h4>Use another service to log in.</h4>
+            @*<h4>Use another service to log in.</h4>
             <hr />
             @{
                 var loginProviders = SignInManager.GetExternalAuthenticationSchemes().ToList();
                 if (loginProviders.Count == 0)
                 {
-
+                    <p>No External Login</p>
                 }
                 else
                 {
@@ -68,7 +68,7 @@
                         </div>
                     </form>
                 }
-            }
+            }*@
         </section>
     </div>
 </div>

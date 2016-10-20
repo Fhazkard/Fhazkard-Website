@@ -87,7 +87,8 @@ namespace Fhazkard_Website
             {
                 AppId = "1244288892301529",
                 AppSecret = "54d07bd40dc55164740907c662ffe1a6"
-            });
+            }
+                );
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
 
