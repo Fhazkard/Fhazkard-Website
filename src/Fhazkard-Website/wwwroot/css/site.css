@@ -217,9 +217,6 @@ a:hover, a:focus {
     text-align: left;
     }
 }
-input.form-control.login{
-    margin-left: 20px;
-}
 .form-group.login{
      margin-left: 10px;
 }
@@ -247,4 +244,12 @@ dt, dd {
 }
 #input_title{
     max-width: 100%;
+}
+@media (min-width : 992px){
+    .col-md-10.login{
+        float:none;
+    }
+}
+#btn-eksternal{
+    margin-top: 5px;
 }
