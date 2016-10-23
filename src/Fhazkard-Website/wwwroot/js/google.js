@@ -6,7 +6,6 @@
     m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
 })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 ga('create', 'UA-84762732-3', 'auto');
-ga('require', 'linkid');
 ga('send', 'pageview');
 //google share
 (function () {
@@ -14,3 +13,4 @@ ga('send', 'pageview');
     po.src = 'https://apis.google.com/js/platform.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
 })();
+
