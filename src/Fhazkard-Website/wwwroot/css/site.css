@@ -252,6 +252,12 @@ dt, dd {
     .col-md-offset-2.login{
         margin-left: 0px;
     }
+    .col-md-2.control-label.content{
+       float: none;
+    }
+    .col-md-10.login.create-blog{
+        width : 100%;
+    }
 }
 #btn-eksternal{
     margin-top: 5px;

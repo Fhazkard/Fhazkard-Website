@@ -7,45 +7,36 @@
 <h2>Create</h2>
 
 <form asp-action="Create">
-    <div class="form-horizontal">
-        <h4>Blog</h4>
-        <hr />
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>       
-        <div class="form-group">
+        <div class="form-horizontal">
+            <h4>Blog</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
                 <label asp-for="title_blog" class="col-md-2 control-label"></label>
-                <div class="col-md-10">
-                    <input id="input_title" asp-for="title_blog" class="form-control" required />
+                <div class="col-md-10 login create-blog">
+                    <input id="input_title" asp-for="title_blog" class="form-control login" required />
                     <span asp-validation-for="title_blog" class="text-danger" />
                 </div>
             </div>
-        <div class="form-group">
             @*<label asp-for="author_name" class="col-md-2 control-label"></label>*@
-            <div class="col-md-10">
-                <input type="hidden" asp-for="author_name" class="form-control disabled" value="@ViewData["author"]" required />
-                @*<span  asp-validation-for="author_name" class="text-danger" />*@
-            </div>
-        </div>       
-        <div class="form-group">
+            <input type="hidden" asp-for="author_name" class="form-control disabled" value="@ViewData["author"]" required />
+            @*<span  asp-validation-for="author_name" class="text-danger" />*@
             @*<label asp-for="create_date" class="col-md-2 control-label"></label>*@
-            <div class="col-md-10">
-                <input type="hidden" asp-for="create_date" class="form-control disabled" value="@ViewData["tgl"]" required/>   
-                @*<span asp-validation-for="create_date" class="text-danger" />*@
+            <input type="hidden" asp-for="create_date" class="form-control disabled" value="@ViewData["tgl"]" required />
+            <div class="form-group">
+                <label asp-for="content_blog" class="col-md-2 control-label content"></label>
+                <div class="col-md-10 login create-blog">
+                    <textarea id="summernote" asp-for="content_blog" class="form-control login" required></textarea>
+                    <span asp-validation-for="content_blog" class="text-danger"></span>
+                </div>
             </div>
-        </div>       
-        <div class="form-group">
-            <label asp-for="content_blog" class="col-md-2 control-label"></label>
-            <div class="col-md-10">          
-                <textarea id="summernote" asp-for="content_blog" class="form-control" required></textarea>
-                <span asp-validation-for="content_blog" class="text-danger"></span>              
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
             </div>
+            <hr>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-        <hr>
-    </div>
 </form>
 
 @*<div align="right">
